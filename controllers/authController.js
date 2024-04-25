@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const { User, Admin } = require("../models");
+const bcrypt = require("bcryptjs");
 
 const authController = {
   getToken: async (req, res) => {
@@ -8,7 +9,7 @@ const authController = {
     try {
       const user = await User.findOne({ where: { email } });
 
-      if (user && password === user.password) {
+      if (user && await bcrypt.compare( password, user.password)) {
         const token = jwt.sign(
           { sub: user.id, role: "User" },
           process.env.SECRET_TOKEN,
@@ -19,7 +20,7 @@ const authController = {
 
       if (!user) {
         const admin = await Admin.findOne({ where: { email } });
-        if (admin && password === admin.password) {
+        if (admin && await bcrypt.compare(password, admin.password)) {
           const token = jwt.sign(
             { sub: admin.id, role: "Admin" },
             process.env.SECRET_TOKEN,
