@@ -4,83 +4,113 @@ const productController = {
   index: async (req, res) => {
     try {
       const products = await Product.findAll();
-      return res.json(products);
+      return res.status(200).json(products);
     } catch (err) {
-      console.log(err);
-      return res.json({ message: "Oops! Something went wrong" });
+      console.error(err);
+      return res.status(500).json({ message: "Oops! Something went wrong while fetching products" });
     }
   },
   show: async (req, res) => {
     try {
       const product = await Product.findByPk(req.params.id);
-      return res.json(product);
+      if (!product) {
+        return res.status(404).json({ message: "Product not found" });
+      }
+      return res.status(200).json(product);
     } catch (err) {
-      console.log(err);
-      return res.json({ message: "Oops! Something went wrong" });
+      console.error(err);
+      return res.status(500).json({ message: "Oops! Something went wrong while fetching product" });
     }
   },
   store: async (req, res) => {
     try {
+      const { name, description, image, price, stock, category, featured } = req.body;
+      
+      if (!name) {
+        return res.status(400).json({ message: "Name is required for creating a product" });
+      }
+      if (!description) {
+        return res.status(400).json({ message: "Description is required for creating a product" });
+      }
+      if (!price) {
+        return res.status(400).json({ message: "Price is required for creating a product" });
+      }
+      if (!stock) {
+        return res.status(400).json({ message: "Stock is required for creating a product" });
+      }
+      if (!category) {
+        return res.status(400).json({ message: "Category is required for creating a product" });
+      }
+
       const newProduct = await Product.create({
-        name: req.body.name,
-        description: req.body.description,
-        pic: req.body.pic,
-        price: req.body.price,
-        stock: req.body.stock,
-        category: req.body.category,
-        featured: req.body.featured,
+        name,
+        description,
+        image,
+        price,
+        stock,
+        category,
+        featured,
       });
-      return res.json(newProduct);
+      return res.status(201).json(newProduct);
     } catch (err) {
-      console.log(err);
-      return res.json({ message: "Oops! Something went wrong" });
+      console.error(err);
+      return res.status(500).json({ message: "Oops! Something went wrong while creating product" });
     }
   },
   update: async (req, res) => {
     try {
       const product = await Product.findByPk(req.params.id);
       if (!product) {
-        return res.status(404).json({ message: "Product not found." });
+        return res.status(404).json({ message: "Product not found" });
       }
+      
+      const { name, description, image, price, stock, category, featured } = req.body;
       const updatableData = {};
-      if (req.body.name) {
-        updatableData.name = req.body.name;
+      
+      if (!name && !description && !image && !price && !stock && !category && !featured) {
+        return res.status(400).json({ message: "Missing required fields" });
       }
-      if (req.body.description) {
-        updatableData.description = req.body.description;
+
+      if (name) {
+        updatableData.name = name;
       }
-      if (req.body.image) {
-        updatableData.image = req.body.image;
+      if (description) {
+        updatableData.description = description;
       }
-      if (req.body.price) {
-        updatableData.price = req.body.price;
+      if (image) {
+        updatableData.image = image;
       }
-      if (req.body.stock) {
-        updatableData.stock = req.body.stock;
+      if (price) {
+        updatableData.price = price;
       }
-      if (req.body.category) {
-        updatableData.category = req.body.category;
+      if (stock) {
+        updatableData.stock = stock;
       }
-      if (req.body.featured) {
-        updatableData.featured = req.body.featured;
+      if (category) {
+        updatableData.category = category;
       }
+      if (featured) {
+        updatableData.featured = featured;
+      }
+      
       await product.update(updatableData);
-      return res.json(product);
+      return res.status(200).json(product);
     } catch (err) {
-      console.log(err);
-      return res.status(500).json({ message: "Error updating product." });
+      console.error(err);
+      return res.status(500).json({ message: "Oops! Something went wrong while updating product" });
     }
   },
-  
-
   destroy: async (req, res) => {
     try {
       const product = await Product.findByPk(req.params.id);
+      if (!product) {
+        return res.status(404).json({ message: "Product not found" });
+      }
       await product.destroy();
-      return res.json({ message: "Product deleted successfully." });
+      return res.status(200).json({ message: "Product deleted successfully" });
     } catch (err) {
-      console.log(err);
-      return res.json({ message: "Error deleting product." });
+      console.error(err);
+      return res.status(500).json({ message: "Oops! Something went wrong while deleting product" });
     }
   },
 };

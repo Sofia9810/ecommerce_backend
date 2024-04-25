@@ -25,13 +25,17 @@ const userController = {
   },
   store: async (req, res) => {
     try {
-      const hashedPassword = await bcrypt.hash(req.body.password, 10);
+      const { firstname, lastname, email, password, address, phoneNumber } = req.body;
+      if (!firstname || !lastname || !email || !password) {
+        return res.status(400).json({ message: "Missing required fields" });
+      }
+      const hashedPassword = await bcrypt.hash(password, 10);
       const newUser = await User.create({
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        email: req.body.email,
-        address: req.body.address,
-        phoneNumber: req.body.phoneNumber,
+        firstname,
+        lastname,
+        email,
+        address,
+        phoneNumber,
         password: hashedPassword,
       });
       return res.status(201).json(newUser);
@@ -42,20 +46,24 @@ const userController = {
   },
   update: async (req, res) => {
     try {
-      const hashedPassword = await bcrypt.hash(req.body.password, 10);
+      const { firstname, lastname, email, password, address, phoneNumber } = req.body;
+      if (!firstname || !lastname || !email || !password) {
+        return res.status(400).json({ message: "Missing required fields" });
+      }
+      const hashedPassword = await bcrypt.hash(password, 10);
       const user = await User.findByPk(req.params.id);
       if (!user) {
         return res.status(404).json({ message: "User not found" });
       }
-      if (req.auth.sub !== req.params.id) {
-        return res.status(403).json({ message: "Unauthorized" });
+      if (req.auth.sub !== req.params.id && req.auth.role !== "Admin") {
+        return res.status(403).json({ message: "You are not authorized to update this user" });
       }
       const updatableData = {
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        email: req.body.email,
-        address: req.body.address,
-        phoneNumber: req.body.phoneNumber,
+        firstname,
+        lastname,
+        email,
+        address,
+        phoneNumber,
         password: hashedPassword,
       };
       await user.update(updatableData);
@@ -68,7 +76,7 @@ const userController = {
   destroy: async (req, res) => {
     try {
       const userId = req.params.id;
-      if (userId !== req.user.id) {
+      if (userId !== req.auth.sub && req.auth.role !== "Admin") {
         return res.status(403).json({ message: "You are not authorized to delete this user." });
       }
       const user = await User.findByPk(userId);
