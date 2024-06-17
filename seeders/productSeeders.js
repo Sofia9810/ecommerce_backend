@@ -7,7 +7,7 @@ async function productSeeder() {
     price: 699.99,
     stock: 10,
     featured: true,
-    pic: "https://example.com/rtx3080.jpg",
+    pic: "NVIDIAGeForceRTX3080.jpg",
     categoryId: 1,
     "category_label": "Hardware"
   },
@@ -17,7 +17,7 @@ async function productSeeder() {
     price: 549.99,
     stock: 15,
     featured: false,
-    pic: "https://example.com/ryzen5900x.jpg",
+    pic: "AMDRyzen95900X.avif",
     categoryId: 1,
     "category_label": "Hardware"
   },
@@ -27,7 +27,7 @@ async function productSeeder() {
     price: 299.99,
     stock: 8,
     featured: false,
-    pic: "https://example.com/rogstrix.jpg",
+    pic: "RogStrix.png",
     categoryId: 1,
     "category_label": "Hardware"
   },
@@ -37,7 +37,7 @@ async function productSeeder() {
     price: 159.99,
     stock: 20,
     featured: true,
-    pic: "https://example.com/vengeancergb.jpg",
+    pic: "CorsairVengeance.webp",
     categoryId: 1,
     "category_label": "Hardware"
   },
@@ -47,7 +47,7 @@ async function productSeeder() {
     price: 179.99,
     stock: 25,
     featured: false,
-    pic: "https://example.com/970evoplus.jpg",
+    pic: "ssd970EVO.webp",
     categoryId: 1,
     "category_label": "Hardware"
   },
@@ -57,7 +57,7 @@ async function productSeeder() {
     price: 129.99,
     stock: 12,
     featured: true,
-    pic: "https://example.com/rm850x.jpg",
+    pic: "Rm850x.png",
     categoryId: 1,
     "category_label": "Hardware"
   },
@@ -67,7 +67,7 @@ async function productSeeder() {
     price: 149.99,
     stock: 18,
     featured: true,
-    pic: "https://example.com/h510elite.jpg",
+    pic: "NZXTH710.avif",
     categoryId: 1,
     "category_label": "Hardware"
   },
@@ -77,7 +77,7 @@ async function productSeeder() {
     price: 159.99,
     stock: 10,
     featured: false,
-    pic: "https://example.com/h100i.jpg",
+    pic: "CORSAIRH100i.png",
     categoryId: 1,
     "category_label": "Hardware"
   },
@@ -87,17 +87,7 @@ async function productSeeder() {
     price: 199.99,
     stock: 7,
     featured: true,
-    pic: "https://example.com/essencestx.jpg",
-    categoryId: 1,
-    "category_label": "Hardware"
-  },
-  {
-    name: "Cable de extensión PCIe 3.0 para GPU",
-    description: "Cable de extensión de alta calidad para conectar tarjetas gráficas a la placa base.",
-    price: 19.99,
-    stock: 30,
-    featured: false,
-    pic: "https://example.com/pciecable.jpg",
+    pic: "essenceSTX.png",
     categoryId: 1,
     "category_label": "Hardware"
   },
@@ -107,7 +97,7 @@ async function productSeeder() {
     price: 149.99,
     stock: 15,
     featured: true,
-    pic: "https://example.com/blackwidowelite.jpg",
+    pic: "Razerblackwidow.png",
     categoryId: 2,
     "category_label": "Periféricos"
   },
@@ -117,7 +107,7 @@ async function productSeeder() {
     price: 79.99,
     stock: 20,
     featured: false,
-    pic: "https://example.com/g502hero.jpg",
+    pic: "logitechG502.webp",
     categoryId: 2,
     "category_label": "Periféricos"
   },
@@ -127,7 +117,7 @@ async function productSeeder() {
     price: 59.99,
     stock: 25,
     featured: true,
-    pic: "https://example.com/mm800.jpg",
+    pic: "corsairpolaris.avif",
     categoryId: 2,
     "category_label": "Periféricos"
   },
@@ -137,7 +127,7 @@ async function productSeeder() {
     price: 149.99,
     stock: 12,
     featured: false,
-    pic: "https://example.com/arctis7.jpg",
+    pic: "arctis7.png",
     categoryId: 2,
     "category_label": "Periféricos"
   },
@@ -190,6 +180,16 @@ async function productSeeder() {
     pic: "https://example.com/dxracer.jpg",
     categoryId: 2,
     "category_label": "Periféricos"
+  },
+  {
+    name: "Cable de extensión PCIe 3.0 para GPU",
+    description: "Cable de extensión de alta calidad para conectar tarjetas gráficas a la placa base.",
+    price: 19.99,
+    stock: 30,
+    featured: false,
+    pic: "https://example.com/pciecable.jpg",
+    categoryId: 1,
+    "category_label": "Hardware"
   },
   {
     name: "Philips Hue Play",
