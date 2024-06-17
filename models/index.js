@@ -1,4 +1,7 @@
 const { Sequelize, Model, DataTypes } = require("sequelize");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const User = require("./User");
 const Order = require("./Order");
@@ -13,7 +16,7 @@ const sequelize = new Sequelize(
   {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
-    dialect: process.env.DB_CONNECTION,
+    dialect: process.env.DB_DIALECT,  // Asegúrate de usar la variable DB_DIALECT aquí
     logging: false,
   }
 );
