@@ -7,7 +7,7 @@ async function productSeeder() {
     price: 699.99,
     stock: 10,
     featured: true,
-    pic: "https://example.com/rtx3080.jpg",
+    pic: "rtx3080.jpg",
     categoryId: 1,
     "category_label": "Hardware"
   },
@@ -207,7 +207,7 @@ async function productSeeder() {
     price: 599.99,
     stock: 8,
     featured: true,
-    pic: "https://example.com/rogswift.jpg",
+    pic: "rogswift.jpg",
     categoryId: 3,
     "category_label": "Monitores"
   },
