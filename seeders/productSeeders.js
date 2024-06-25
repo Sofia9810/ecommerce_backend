@@ -7,10 +7,13 @@ async function productSeeder() {
     price: 699.99,
     stock: 10,
     featured: true,
-    pic: "NVIDIAGeForceRTX3080.jpg",
+    pic: [
+      "NVIDIAGeForceRTX3080_1.jpg",
+    ],
     categoryId: 1,
-    "category_label": "Hardware"
-  },
+    category_label: "Hardware"
+  }
+  ,
   {
     name: "AMD Ryzen 9 5900X",
     description: "Procesador de alto rendimiento para juegos y aplicaciones intensivas.",
