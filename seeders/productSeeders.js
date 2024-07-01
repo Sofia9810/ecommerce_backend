@@ -8,7 +8,7 @@ async function productSeeder() {
     stock: 10,
     featured: true,
     pic: [
-      "NVIDIAGeForceRTX3080_1.jpg",
+      "NVIDIAGeForceRTX3080.jpg",
     ],
     categoryId: 1,
     category_label: "Hardware"
