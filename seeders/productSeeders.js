@@ -7,9 +7,8 @@ async function productSeeder() {
     price: 699.99,
     stock: 10,
     featured: true,
-    pic: [
-      "NVIDIAGeForceRTX3080_1.jpg",
-    ],
+    pic: 
+      "NVIDIAGeForceRTX3080.jpg",
     categoryId: 1,
     category_label: "Hardware"
   }
