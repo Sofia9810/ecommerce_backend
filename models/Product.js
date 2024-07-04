@@ -21,6 +21,10 @@ class Product extends Model {
           type: DataTypes.JSON,
           allowNull: false,
         },
+        gallery: {
+          type: DataTypes.JSON,
+          allowNull: true,
+        },
         price: {
           type: DataTypes.STRING,
           allowNull: false,
