@@ -7,9 +7,9 @@ async function productSeeder() {
     price: 699.99,
     stock: 10,
     featured: true,
-    pic: [
+    pic: 
       "NVIDIAGeForceRTX3080.jpg",
-    ],
+      gallery: "geforce-rtx-3080-product-gallery.jpg",
     categoryId: 1,
     category_label: "Hardware"
   }
@@ -21,6 +21,7 @@ async function productSeeder() {
     stock: 15,
     featured: false,
     pic: "AMDRyzen95900X.avif",
+    gallery: "geforce-rtx-3080-product-gallery.jpg",
     categoryId: 1,
     "category_label": "Hardware"
   },
@@ -31,6 +32,7 @@ async function productSeeder() {
     stock: 8,
     featured: false,
     pic: "RogStrix.png",
+    gallery: "geforce-rtx-3080-product-gallery.jpg",
     categoryId: 1,
     "category_label": "Hardware"
   },
@@ -41,6 +43,7 @@ async function productSeeder() {
     stock: 20,
     featured: true,
     pic: "CorsairVengeance.webp",
+    gallery: "geforce-rtx-3080-product-gallery.jpg",
     categoryId: 1,
     "category_label": "Hardware"
   },
@@ -51,6 +54,7 @@ async function productSeeder() {
     stock: 25,
     featured: false,
     pic: "ssd970EVO.webp",
+    gallery: "geforce-rtx-3080-product-gallery.jpg",
     categoryId: 1,
     "category_label": "Hardware"
   },
@@ -61,6 +65,7 @@ async function productSeeder() {
     stock: 12,
     featured: true,
     pic: "Rm850x.png",
+    gallery: "geforce-rtx-3080-product-gallery.jpg",
     categoryId: 1,
     "category_label": "Hardware"
   },
@@ -71,6 +76,7 @@ async function productSeeder() {
     stock: 18,
     featured: true,
     pic: "NZXTH710.avif",
+    gallery: "geforce-rtx-3080-product-gallery.jpg",
     categoryId: 1,
     "category_label": "Hardware"
   },
@@ -81,6 +87,7 @@ async function productSeeder() {
     stock: 10,
     featured: false,
     pic: "CORSAIRH100i.png",
+    gallery: "geforce-rtx-3080-product-gallery.jpg",
     categoryId: 1,
     "category_label": "Hardware"
   },
