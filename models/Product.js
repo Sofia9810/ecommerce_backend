@@ -37,6 +37,10 @@ class Product extends Model {
           type: DataTypes.STRING,
           allowNull: false,
         },
+        categoryId: {
+          type: DataTypes.BIGINT,
+          allowNull: false,
+        },
       },
       {
         sequelize,

@@ -24,7 +24,7 @@ const productController = {
   },
   store: async (req, res) => {
     try {
-      const { name, description, image, price, stock, category, featured } = req.body;
+      const { name, description, pic, price, stock, categoryId, featured } = req.body;
       
       if (!name) {
         return res.status(400).json({ message: "Name is required for creating a product" });
@@ -38,39 +38,37 @@ const productController = {
       if (!stock) {
         return res.status(400).json({ message: "Stock is required for creating a product" });
       }
-      if (!category) {
-        return res.status(400).json({ message: "Category is required for creating a product" });
+      if (!categoryId) {
+        return res.status(400).json({ message: "CategoryId is required for creating a product" });
       }
 
       const newProduct = await Product.create({
         name,
         description,
-        image,
+        pic,
         price,
         stock,
-        category,
+        categoryId,
         featured,
       });
+
       return res.status(201).json(newProduct);
     } catch (err) {
       console.error(err);
       return res.status(500).json({ message: "Oops! Something went wrong while creating product" });
     }
   },
+
   update: async (req, res) => {
     try {
+      const { name, description, image, price, stock, categoryId, featured } = req.body;
+      
       const product = await Product.findByPk(req.params.id);
       if (!product) {
         return res.status(404).json({ message: "Product not found" });
       }
-      
-      const { name, description, image, price, stock, category, featured } = req.body;
-      const updatableData = {};
-      
-      if (!name && !description && !image && !price && !stock && !category && !featured) {
-        return res.status(400).json({ message: "Missing required fields" });
-      }
 
+      const updatableData = {};
       if (name) {
         updatableData.name = name;
       }
@@ -86,14 +84,15 @@ const productController = {
       if (stock) {
         updatableData.stock = stock;
       }
-      if (category) {
-        updatableData.category = category;
+      if (categoryId) {
+        updatableData.categoryId = categoryId;
       }
-      if (featured) {
+      if (featured !== undefined) {
         updatableData.featured = featured;
       }
-      
+
       await product.update(updatableData);
+
       return res.status(200).json(product);
     } catch (err) {
       console.error(err);

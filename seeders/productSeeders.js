@@ -21,7 +21,7 @@ async function productSeeder() {
     stock: 15,
     featured: false,
     pic: "AMDRyzen95900X.avif",
-    gallery: "geforce-rtx-3080-product-gallery.jpg",
+    gallery: "amd-ryzen-9-5900x-product-gallery.webp",
     categoryId: 1,
     "category_label": "Hardware"
   },
@@ -76,7 +76,7 @@ async function productSeeder() {
     stock: 18,
     featured: true,
     pic: "NZXTH710.avif",
-    gallery: "geforce-rtx-3080-product-gallery.jpg",
+    gallery: "NZXT-H510-Elite-product-gallery.avif",
     categoryId: 1,
     "category_label": "Hardware"
   },
@@ -118,6 +118,7 @@ async function productSeeder() {
     stock: 20,
     featured: false,
     pic: "logitechG502.webp",
+    gallery: "Logitech-G502-Hero-product-gallery.png",
     categoryId: 2,
     "category_label": "Periféricos"
   },
@@ -148,6 +149,7 @@ async function productSeeder() {
     stock: 8,
     featured: true,
     pic: "https://example.com/yetix.jpg",
+    gallery: "Blue-Yeti-X-product-gallery.jpg",
     categoryId: 2,
     "category_label": "Periféricos"
   },
@@ -168,6 +170,7 @@ async function productSeeder() {
     stock: 12,
     featured: true,
     pic: "https://example.com/elite2.jpg",
+    gallery: "Xbox-Elite-Series-2-product-gallery.jpg",
     categoryId: 2,
     "category_label": "Periféricos"
   },
@@ -228,6 +231,7 @@ async function productSeeder() {
     stock: 5,
     featured: false,
     pic: "https://example.com/odysseyg7.jpg",
+    gallery: "samsung-odyssey-product-gallery.jpg",
     categoryId: 3,
     "category_label": "Monitores"
   },
@@ -318,6 +322,7 @@ async function productSeeder() {
     stock: 12,
     featured: true,
     pic: "https://example.com/zephyrusg14.jpg",
+    gallery: "rog-zephyrus-product-gallery.jpg",
     categoryId: 5,
     "category_label": "Laptops"
   },
