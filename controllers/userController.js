@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 
 const userController = {
   index: async (req, res) => {
+    console.log("hola")
     try {
       const users = await User.findAll();
       return res.json(users);
